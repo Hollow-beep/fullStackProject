@@ -17,6 +17,7 @@ public class MovieController {
     private MovieService movieService;
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies() {
+        //Response with full data in DB movie list
         return new ResponseEntity<List<Movie>>(movieService.allMovies(), HttpStatus.OK);
     }
     /*
@@ -27,6 +28,7 @@ public class MovieController {
     */
     @GetMapping("/{imdbID}")
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbID){
+        //Response movie info base on imdbID
         return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbID), HttpStatus.OK);
     }
 }
